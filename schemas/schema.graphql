@@ -1,0 +1,421 @@
+scalar Date
+
+scalar DateTime
+
+enum GenderEnum {
+  male
+  female
+}
+
+type LearningStream {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  name: String!
+  year: Int!
+  years: Int
+  startedAt: Date
+  endedAt: Date
+  leaders: [PublicUser]!
+  students: [PublicUser]!
+}
+
+input LearningStreamData {
+  organizationId: UUID!
+  name: String!
+  year: Int!
+  years: Int
+  startedAt: Date
+}
+
+type LearningStreamPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [LearningStream!]!
+}
+
+scalar Mixed
+
+type Mutation {
+  logout: Boolean!
+  updateProfile(input: Profile!): User!
+  changePassword(currentPassword: String!, input: Password!): User!
+  unlinkSocialAccount(id: UUID!): Boolean!
+  createUser(input: UserData!): User!
+  updateUser(id: UUID!, input: UserData!): User!
+  deleteUser(id: UUID!): Boolean!
+  linkUserToOrganization(input: RelationData!): RelatedOrganization
+  unlinkUserFromOrganization(id: UUID!): Boolean!
+  createOrganization(input: OrganizationData!): Organization!
+  updateOrganization(id: UUID!, input: OrganizationData!): Organization!
+  deleteOrganization(id: UUID!): Boolean!
+  createLearningStream(input: LearningStreamData!): LearningStream!
+  updateLearningStream(id: UUID!, input: LearningStreamData!): LearningStream!
+  deleteLearningStream(id: UUID!): Boolean!
+  linkStudentToStream(input: StreamRelationData!): RelatedOrganization
+  unlinkStudentFromStream(userId: UUID!, learningStreamId: UUID!): Boolean!
+  moveStudents(
+    targetStreamId: UUID!
+    sourceStreamId: UUID!
+    onlyUsers: [UUID]
+  ): Boolean
+  linkLeaderToStream(input: StreamRelationData!): RelatedOrganization
+  unlinkLeaderFromStream(userId: UUID!, learningStreamId: UUID!): Boolean!
+  createVacationPlan(input: ReportVacationPlanData!): VacationPlan!
+  updateVacationPlan(id: UUID!, input: ReportVacationPlanData!): VacationPlan!
+  sendVacationPlan(id: UUID!): VacationPlan!
+  approveVacationPlan(id: UUID!): VacationPlan!
+  rejectVacationPlan(id: UUID!, input: ReasonData!): VacationPlan!
+  deleteVacationPlan(id: UUID!): Boolean!
+}
+
+input OrderByClause {
+  field: String!
+  order: SortOrder!
+}
+
+type Organization {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  parent: Organization
+  children(
+    first: Int = 10
+    page: Int
+  ): OrganizationPaginator
+  changes(
+    first: Int = 10
+    page: Int
+  ): OrganizationChangePaginator
+  type: OrganizationType
+  relatedUsers(
+    relationship: RelationshipEnum
+    first: Int = 10
+    page: Int
+  ): RelatedUserPaginator
+  learningStreams(
+    first: Int = 10
+    page: Int
+  ): LearningStreamPaginator
+  slug: String!
+  name: String!
+  description: String
+  shortName: String
+  address: String
+  phone: String
+  inn: String
+  ogrn: String
+  deletedDue: String
+}
+
+type OrganizationChange {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  parent: OrganizationChange
+  children(
+    first: Int = 10
+    page: Int
+  ): OrganizationChangePaginator
+  organization: Organization
+  name: String!
+  shortName: String
+  address: String
+  phone: String
+  inn: String
+  ogrn: String
+  deletedDue: String
+}
+
+type OrganizationChangePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [OrganizationChange!]!
+}
+
+input OrganizationData {
+  slug: String
+  name: String
+  description: String
+  shortName: String
+  address: String
+  phone: String
+  inn: String
+  ogrn: String
+  type: OrganizationTypeEnum
+}
+
+type OrganizationPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Organization!]!
+}
+
+type OrganizationType {
+  slug: String!
+  name: String!
+}
+
+enum OrganizationTypeEnum {
+  governing
+  educational
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  total: Int
+  count: Int
+  currentPage: Int
+  lastPage: Int
+}
+
+type PaginatorInfo {
+  count: Int!
+  currentPage: Int!
+  firstItem: Int
+  hasMorePages: Boolean!
+  lastItem: Int
+  lastPage: Int!
+  perPage: Int!
+  total: Int!
+}
+
+input Password {
+  password: String!
+}
+
+input Profile {
+  name: String
+  surname: String
+  patronymic: String
+  inn: String
+  email: String
+  phone: String
+  birthDate: Date
+  gender: GenderEnum
+}
+
+type PublicUser {
+  id: UUID!
+  name: String!
+  surname: String!
+  patronymic: String
+  email: String
+  avatar: String
+}
+
+type Query {
+  me: User
+  relatedOrganizations: [RelatedOrganization]!
+  relationships: [Relationship]!
+  socialProviders: [SocialProvider]!
+  organizations(
+    slug: String
+    inn: String
+    ogrn: String
+    name: String
+    address: String
+    first: Int = 10
+    page: Int
+  ): OrganizationPaginator
+  organization(id: UUID!): Organization
+  learningStream(id: UUID!): LearningStream
+  users(
+    name: String
+    surname: String
+    inn: String
+    email: String
+    phone: String
+    first: Int = 10
+    page: Int
+  ): UserPaginator
+  user(id: UUID!): User
+  vacationPlans(
+    userId: UUID
+    organizationId: UUID
+    learningStreamId: UUID
+    season: ReportSeasonEnum
+    first: Int = 10
+    page: Int
+  ): VacationPlanPaginator
+  vacationPlan(id: UUID!): VacationPlan
+}
+
+input ReasonData {
+  reason: String!
+}
+
+type RelatedOrganization {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  loggedAt: DateTime
+  id: UUID!
+  organization: Organization!
+  relationship: Relationship!
+}
+
+type RelatedUser {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  loggedAt: DateTime
+  id: UUID!
+  user: PublicUser!
+  relationship: Relationship!
+}
+
+type RelatedUserPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [RelatedUser!]!
+}
+
+input RelationData {
+  organizationId: UUID!
+  relationship: RelationshipEnum!
+  userId: UUID!
+  date: Date
+}
+
+type Relationship {
+  slug: String!
+  name: String!
+}
+
+enum RelationshipEnum {
+  director
+  secretary
+  head_teacher
+  stream_leader
+  teacher
+  psychologist
+  student
+  parent
+  deputy_director_academy
+  deputy_director_education
+  deputy_director_methodology
+  deputy_director_supply
+}
+
+enum ReportSeasonEnum {
+  winter
+  spring
+  summer
+  autumn
+}
+
+enum ReportStatusEnum {
+  saved
+  sent
+  approved
+  rejected
+}
+
+input ReportVacationPlanData {
+  learningStreamId: UUID!
+  year: Int!
+  season: ReportSeasonEnum!
+  data: String!
+}
+
+type SocialAccount {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  user: User!
+  provider: SocialProvider!
+  providerUser: String!
+  name: String!
+  email: String
+}
+
+type SocialProvider {
+  slug: String!
+  name: String!
+  driver: String!
+  class: String
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+input StreamRelationData {
+  learningStreamId: UUID!
+  userId: UUID!
+  date: Date
+  acting: Boolean
+}
+
+enum Trashed {
+  ONLY
+  WITH
+  WITHOUT
+}
+
+type User {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  name: String!
+  surname: String!
+  patronymic: String
+  inn: String
+  email: String
+  emailVerifiedAt: DateTime
+  phone: String
+  birthDate: Date
+  gender: GenderEnum
+  avatar: String
+  fillFactor: Float
+  superuser: Boolean
+  relatedOrganizations: [RelatedOrganization]!
+  socialAccounts: [SocialAccount]!
+  myUsers(
+    myRelationship: RelationshipEnum!
+    organizationId: UUID!
+    learningStreamId: UUID
+    usersRelationships: [RelationshipEnum]
+    fio: String
+    first: Int = 10
+    page: Int
+  ): UserPaginator
+}
+
+input UserData {
+  name: String!
+  surname: String!
+  patronymic: String
+  inn: String
+  email: String
+  phone: String
+  password: String
+  birthDate: Date
+  gender: GenderEnum
+}
+
+type UserPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [User!]!
+}
+
+scalar UUID
+
+type VacationPlan {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  id: UUID!
+  user: PublicUser!
+  learningStream: LearningStream!
+  year: Int!
+  season: ReportSeasonEnum!
+  status: ReportStatusEnum!
+  data: String!
+  moderatedAt: DateTime
+  moderatedBy: PublicUser
+  reason: String
+}
+
+type VacationPlanPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [VacationPlan!]!
+}

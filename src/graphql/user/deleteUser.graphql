@@ -1,0 +1,5 @@
+mutation (
+  $id: UUID!
+) {
+  deleteUser(id: $id)
+}

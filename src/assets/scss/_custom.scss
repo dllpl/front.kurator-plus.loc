@@ -1,0 +1,67 @@
+// Here you can add other styles
+@media (min-width: 992px) {
+  .app-header .navbar-brand {
+    width: 200px;
+  }
+}
+
+.sidebar-nav {
+  background: $white;
+  color: $black;
+
+  .nav-link {
+    color: $black;
+  }
+
+  .nav-link.active{
+    background: $brand-colors-kurator-plus-light;
+  }
+
+  .nav-link.nav-dropdown-toggle{
+    background: $gray-300;
+  }
+
+
+  .nav-dropdown.open{
+    background: $white;
+
+    .nav-link {
+      color: $black;
+    }
+    .nav-link.active{
+      color: $black;
+
+      .nav-icon {
+        color: $black;
+      }
+
+    }
+
+  }
+
+  .nav-dropdown-items {
+    background: $white;
+    color: $black;
+
+    .nav-icon {
+      color: $black;
+    }
+  }
+}
+
+.sidebar-minimized{
+  .nav-dropdown-items {
+    background: $white !important;
+    color: $black;
+
+    .nav-icon {
+      color: $black;
+    }
+  }
+}
+
+.app-header > {
+  .navbar-brand {
+    color: $white
+  }
+}

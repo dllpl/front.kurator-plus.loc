@@ -1,0 +1,10 @@
+mutation($name:String!,$year:Int!,$years:Int,$organizationId: UUID!){
+  createLearningStream(input:{
+    name:$name
+    year:$year
+    years:$years
+    organizationId: $organizationId
+  }){
+    id
+  }
+}

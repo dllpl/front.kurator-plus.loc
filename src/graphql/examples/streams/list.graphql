@@ -1,0 +1,12 @@
+query{
+  organization(id:"3d38dae4-00ea-4ac8-90fa-4ccdba7b2d02"){
+    learningStreams{
+      data{
+        id
+        name
+        year
+        years
+      }
+    }
+  }
+}

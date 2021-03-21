@@ -1,0 +1,16 @@
+{
+  "name": "Admin GraphQL Schema",
+  "schemaPath": "./schemas/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://core.arthur.kuratorplus.ru/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFmNDViZTYwN2VlNTk3YmYwM2VmNjZlZTBlMjk4Nzc3ZWIwYTQ2ZTVmYTU2Y2ZjZmZlNjY3ZDMxYjEzNDM4YzIyNTdhNDEzNWE4ZGJiZDE0In0.eyJhdWQiOiIyMTBkZDQ2Zi1mMjgzLTQ3ZDEtOWI3NS0zODE3ZGYwNTljYjAiLCJqdGkiOiIxZjQ1YmU2MDdlZTU5N2JmMDNlZjY2ZWUwZTI5ODc3N2ViMGE0NmU1ZmE1NmNmY2ZmZTY2N2QzMWIxMzQzOGMyMjU3YTQxMzVhOGRiYmQxNCIsImlhdCI6MTU3MzI2MDYzMywibmJmIjoxNTczMjYwNjMzLCJleHAiOjE1NzMzNDcwMzMsInN1YiI6ImNiY2NkOTMwLTEyMzAtNDIyNC1hZWExLWQ5ZjMyYzYwMzFkMSIsInNjb3BlcyI6W119.W3F1-6XI7cxSWtKLXxNmNbMCKyiG9bUXc6eadlHD37aI7t0aFHdnRaeigjBN0geOF40fDlTL8iZw65GYSrXFVF2F3-oOboWzO3xCFkYbiutiYBeFecmPDni8G17fLAvFNvArQkrm_b_qsvQkeTYQ8h7AfyZi5sJJ2VM3RApBdi6FvtglZcC454IStvGyPInEDCf3l0HEsAk9NjU6dGxkS1SDn0i44wIj6GJn4r3xZnZeJuYU7tngmB3AO6x_FAtT9uRC27uAT8WEWRSQf-8HDiNQhxqOdQCxiaWsgiziRbCu-Smio4Vj7F5LoCaT7ZDNsYDuBJC-h-Co8RSm79ttKOVKp7RivdYHl7xSy23pS0cYDwwUWmF7U1d7lFP0rylzH2b1-WsiP8ERx9D2KEcMSEnyt1qU6Zc4g7Hs_3eH3M4lr9t5OTa86FhlyQJW-3TVdliX7TzhnsegyqcDMS7ROUO6ijfs8iJzdHZo8E8IA3F0t72_R4JFk7NhUWlslU6xIzfszGw6824BXW-Lyq0VwHTd0ghBPVqpl7eLYqSj1OtK8aChf_jyCJR5Enlub9FJ0ECu0YupLg5uZeyDXkn3MWKTt-Vn0ccv480aWVIdHbZr2MIELCRrXiFjmZYCutA0WGS1-2RHx0ZTpHzi8YQgjs74qqcNNkspYZA-xM6ebow"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

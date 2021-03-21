@@ -1,0 +1,9 @@
+mutation(
+  $id:UUID!
+){
+  approveVacationPlan(
+    id:$id
+  ){
+    status
+  }
+}

@@ -1,0 +1,6 @@
+mutation{
+  unlinkLeaderFromStream(
+    learningStreamId: "25b6bc52-3c70-4635-b9c1-8623b2cf3e60"
+    userId: "7c8cfc88-5fed-4eff-a0b3-87a2b27a72fa"
+  )
+}

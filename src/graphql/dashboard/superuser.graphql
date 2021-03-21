@@ -1,0 +1,12 @@
+query{
+  organizations{
+    paginatorInfo{
+      total
+    }
+  }
+  users{
+    paginatorInfo{
+      total
+    }
+  }
+}

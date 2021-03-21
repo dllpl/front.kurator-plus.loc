@@ -1,0 +1,12 @@
+{
+  users(
+    name: ""
+  ){
+    data {
+      id name surname patronymic email inn phone fillFactor
+    }
+    paginatorInfo{
+      count currentPage firstItem total perPage
+    }
+  }
+}

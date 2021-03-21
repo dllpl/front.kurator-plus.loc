@@ -1,0 +1,34 @@
+#import "~gql/fragments/paginatorFragment.graphql"
+
+query($organizationId:UUID!,$first:Int){
+  organization(id:$organizationId){
+    learningStreams(first: $first){
+      data{
+        id
+        name
+        year
+        years
+        leaders{
+          id
+          avatar
+          email
+          name
+          surname
+          patronymic
+        },
+        students{
+          id
+          avatar
+          email
+          name
+          surname
+          patronymic
+        }
+
+      },
+      paginatorInfo {
+        ...paginatorFragment
+      }
+    }
+  }
+}

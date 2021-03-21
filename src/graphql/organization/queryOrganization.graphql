@@ -1,0 +1,9 @@
+query (
+  $id: UUID!
+) {
+  organization(
+    id: $id
+  ){
+    id name shortName address inn ogrn slug phone description
+  }
+}

@@ -1,0 +1,11 @@
+query($organizationId:UUID!){
+  organization(id:$organizationId){
+    shortName
+    name
+    learningStreams{
+      paginatorInfo{
+        total
+      }
+    }
+  }
+}

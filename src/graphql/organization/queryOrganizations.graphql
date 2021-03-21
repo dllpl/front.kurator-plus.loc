@@ -1,0 +1,26 @@
+query (
+  $page: Int
+  $first: Int
+  $slug: String
+  $name: String
+  $address: String
+  $inn: String
+  $ogrn: String
+) {
+  organizations(
+    page: $page
+    first: $first
+    slug: $slug
+    name: $name
+    address: $address
+    inn: $inn
+    ogrn: $ogrn
+  ){
+    data {
+      id name shortName address inn ogrn slug
+    }
+    paginatorInfo{
+      count currentPage firstItem total perPage
+    }
+  }
+}

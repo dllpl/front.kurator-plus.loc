@@ -1,0 +1,15 @@
+mutation(
+  $id:UUID!
+){
+  sendVacationPlan(
+    id:$id
+  ){
+    status
+    updatedAt
+    moderatedAt
+    moderatedBy{
+      id
+    }
+    reason
+  }
+}

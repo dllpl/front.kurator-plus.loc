@@ -1,0 +1,28 @@
+#import "~gql/fragments/userFragment.graphql"
+
+query (
+  $page: Int
+  $first: Int
+  $name: String
+  $inn: String
+  $phone: String
+  $email: String
+  $surname: String
+) {
+  users(
+    page: $page
+    first: $first
+    name: $name
+    inn: $inn
+    phone: $phone
+    email: $email
+    surname: $surname
+  ){
+    data {
+      ...userFragment
+    }
+    paginatorInfo{
+      count currentPage firstItem total perPage
+    }
+  }
+}

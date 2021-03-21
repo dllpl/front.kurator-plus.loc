@@ -1,0 +1,17 @@
+query{
+  learningStream(id:"5bc647f5-49d3-41e2-af1d-b3ddb1cf366f"){
+    id
+    leaders{
+      id
+      name
+      surname
+      patronymic
+    }
+    students{
+      id
+      name
+      surname
+      patronymic
+    }
+  }
+}

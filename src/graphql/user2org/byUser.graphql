@@ -1,0 +1,15 @@
+query($id: UUID!){
+  user(id: $id){
+    relatedOrganizations {
+      id
+      organization {
+        id
+        name
+      }
+      relationship {
+        slug
+        name
+      }
+    }
+  }
+}

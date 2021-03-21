@@ -1,0 +1,25 @@
+#import "~gql/fragments/paginatorFragment.graphql"
+
+query($id: UUID!,$first:Int,$page:Int){
+  organization(id: $id){
+    relatedUsers(first: $first,page: $page) {
+      data {
+        id
+        relationship{
+          name
+          slug
+        }
+        user {
+          name
+          surname
+          patronymic
+          email
+          id
+        }
+      },
+      paginatorInfo {
+        ...paginatorFragment
+      }
+    }
+  }
+}

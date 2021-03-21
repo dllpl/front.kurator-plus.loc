@@ -1,0 +1,19 @@
+query($learningStreamId:UUID!){
+  learningStream(id:$learningStreamId){
+    id
+    name
+    year
+    leaders{
+      id
+      name
+      surname
+      patronymic
+    }
+    students{
+      id
+      name
+      surname
+      patronymic
+    }
+  }
+}

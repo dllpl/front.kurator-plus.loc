@@ -1,0 +1,23 @@
+mutation (
+  $name: String!
+  $surname: String!
+  $inn: String
+  $phone: String
+  $email: String
+  $birthDate: Date
+  $gender: GenderEnum
+  $patronymic: String
+) {
+  updateProfile(input: {
+    name: $name
+    surname: $surname
+    inn: $inn
+    phone: $phone
+    email: $email
+    gender: $gender
+    birthDate: $birthDate
+    patronymic: $patronymic
+  }){
+    id
+  }
+}

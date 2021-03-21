@@ -1,0 +1,8 @@
+mutation($learningStreamId: UUID!,$userId:UUID!){
+  linkLeaderToStream(input:{
+    learningStreamId: $learningStreamId,
+    userId: $userId
+  }){
+    id
+  }
+}

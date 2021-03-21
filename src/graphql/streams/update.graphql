@@ -1,0 +1,19 @@
+mutation(
+  $learningStreamId:UUID!
+  $name:String!
+  $year:Int!
+  $years:Int
+  $organizationId: UUID!
+){
+  updateLearningStream(
+    id: $learningStreamId,
+    input:{
+      name:$name
+      year:$year
+      years:$years
+      organizationId: $organizationId
+    }
+  ){
+    id
+  }
+}

@@ -1,0 +1,11 @@
+#import "~gql/fragments/userFragment.graphql"
+
+query (
+  $id: UUID!
+) {
+  user(
+    id: $id
+  ){
+    ...userFragment
+  }
+}

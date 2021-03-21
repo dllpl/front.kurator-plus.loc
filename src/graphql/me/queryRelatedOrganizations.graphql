@@ -1,0 +1,14 @@
+query{
+  me{
+    relatedOrganizations{
+      organization{
+        id
+        name
+      }
+      relationship{
+        name
+        slug
+      }
+    }
+  }
+}

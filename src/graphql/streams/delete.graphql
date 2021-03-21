@@ -1,0 +1,5 @@
+mutation($learningStreamId:UUID!){
+  deleteLearningStream(
+    id: $learningStreamId
+  )
+}

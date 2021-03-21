@@ -1,0 +1,5 @@
+mutation{
+  deleteLearningStream(
+    id: "19fe7c22-fec0-42e7-9bbf-0b8779489a86"
+  )
+}

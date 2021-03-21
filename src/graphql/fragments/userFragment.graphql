@@ -1,0 +1,3 @@
+fragment userFragment on User{
+  id name surname patronymic email inn phone fillFactor birthDate gender
+}

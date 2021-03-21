@@ -1,0 +1,42 @@
+#import "~gql/fragments/userFragment.graphql"
+
+query (
+  $page: Int
+  $first: Int
+  $fio: String
+  $organizationId: UUID!
+  $myRelationship: RelationshipEnum!
+  $usersRelationships: [RelationshipEnum]
+) {
+  organization(id: $organizationId){
+    id
+    shortName
+  },
+  me{
+    myUsers(
+      organizationId: $organizationId
+      fio: $fio
+      myRelationship: $myRelationship
+      page: $page
+      first: $first
+      usersRelationships: $usersRelationships
+    ){
+      data {
+        ...userFragment
+        relatedOrganizations{
+          id
+          organization{
+            id
+          }
+          relationship{
+            name
+            slug
+          }
+        }
+      }
+      paginatorInfo{
+        count currentPage firstItem total perPage
+      }
+    }
+  }
+}

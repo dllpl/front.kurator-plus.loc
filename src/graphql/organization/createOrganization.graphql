@@ -1,0 +1,23 @@
+mutation (
+  $slug: String!
+  $name: String!
+  $description: String
+  $shortName: String!
+  $address: String
+  $phone: String
+  $inn: String!
+  $ogrn: String!
+  $type: OrganizationTypeEnum
+) {
+  createOrganization(input: {
+    slug: $slug
+    name: $name
+    description: $description
+    shortName: $shortName
+    address: $address
+    phone: $phone
+    inn: $inn
+    ogrn: $ogrn
+    type: $type
+  }){id}
+}

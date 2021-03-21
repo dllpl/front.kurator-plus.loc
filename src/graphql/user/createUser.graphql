@@ -1,0 +1,23 @@
+mutation (
+  $name: String!
+  $surname: String!
+  $inn: String
+  $phone: String
+  $email: String
+  $patronymic: String
+  $birthDate: Date
+  $gender: GenderEnum
+  $password: String
+) {
+  createUser(input: {
+    name: $name
+    surname: $surname
+    inn: $inn
+    phone: $phone
+    email: $email
+    patronymic: $patronymic
+    birthDate: $birthDate
+    gender: $gender
+    password: $password
+  }){id}
+}

@@ -1,0 +1,31 @@
+query(
+  $id: UUID!
+){
+  vacationPlan(id:$id){
+    createdAt
+    updatedAt
+    id
+    user {
+      id
+      name
+      surname
+      patronymic
+    }
+    learningStream{
+      id
+      year
+      name
+    }
+    year
+    season
+    status
+    data
+    moderatedBy{
+      id
+      name
+      patronymic
+      surname
+    }
+    moderatedAt
+  }
+}

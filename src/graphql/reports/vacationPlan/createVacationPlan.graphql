@@ -1,0 +1,17 @@
+mutation(
+  $learningStreamId: UUID!
+  $year: Int!
+  $season: ReportSeasonEnum!
+  $data: String!
+){
+  createVacationPlan(
+    input:{
+      learningStreamId:$learningStreamId
+      year:$year
+      season:$season
+      data:$data
+    }
+  ){
+    id
+  }
+}

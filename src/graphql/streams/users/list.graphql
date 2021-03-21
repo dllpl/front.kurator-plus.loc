@@ -1,0 +1,25 @@
+#import "~gql/fragments/paginatorFragment.graphql"
+
+query($learningStreamId: UUID!,$organizationId:UUID!,$myRelationship: RelationshipEnum!){
+  me{
+    myUsers(
+      myRelationship:$myRelationship
+      organizationId:$organizationId
+      learningStreamId: $learningStreamId
+    ){
+      data{
+        id
+        name
+        surname
+        patronymic
+        email
+        avatar
+        inn
+        phone
+      }
+      paginatorInfo{
+        ...paginatorFragment
+      }
+    }
+  }
+}

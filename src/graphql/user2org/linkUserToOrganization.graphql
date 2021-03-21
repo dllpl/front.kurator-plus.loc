@@ -1,0 +1,14 @@
+mutation(
+  $userId: UUID!
+  $organizationId: UUID!
+  $relationship: RelationshipEnum!
+){
+  linkUserToOrganization(
+    input:{
+      userId: $userId,
+      organizationId:$organizationId,
+      relationship:$relationship
+    }){
+    id
+  }
+}

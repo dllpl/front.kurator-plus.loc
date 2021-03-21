@@ -1,0 +1,6 @@
+mutation($learningStreamId: UUID!,$userId:UUID!){
+  unlinkLeaderFromStream(
+    learningStreamId: $learningStreamId
+    userId: $userId
+  )
+}

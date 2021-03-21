@@ -1,0 +1,49 @@
+query(
+  $organizationId: UUID
+  $userId: UUID
+  $first: Int = 10
+  $page: Int
+
+  $learningStreamId: UUID
+  $season: ReportSeasonEnum
+){
+  vacationPlans(
+    organizationId: $organizationId
+    userId: $userId
+    first: $first
+    page: $page
+    learningStreamId: $learningStreamId
+    season: $season
+  ){
+    paginatorInfo{
+      count currentPage firstItem total perPage
+    }
+    data{
+      createdAt
+      updatedAt
+      id
+      user {
+        id
+        name
+        surname
+        patronymic
+      }
+      learningStream{
+        id
+        year
+        name
+      }
+      year
+      season
+      status
+      data
+      moderatedBy{
+        id
+        name
+        patronymic
+        surname
+      }
+      moderatedAt
+    }
+  }
+}

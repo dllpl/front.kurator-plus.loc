@@ -1,0 +1,27 @@
+query{
+  me{
+    id
+    email
+    name
+    surname
+    patronymic
+    phone
+    superuser
+    inn
+    gender
+    fillFactor
+    relatedOrganizations{
+      id
+      organization{
+        id
+        name
+        shortName
+        slug
+      }
+      relationship{
+        name
+        slug
+      }
+    }
+  }
+}

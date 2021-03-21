@@ -1,0 +1,18 @@
+query($organizationId:UUID!, $myRelationship:RelationshipEnum!){
+  organization(id:$organizationId){
+    shortName
+    name
+    learningStreams{
+      paginatorInfo{
+        total
+      }
+    }
+  }
+  me {
+    myUsers(myRelationship: $myRelationship, organizationId:$organizationId){
+      paginatorInfo{
+        total
+      }
+    }
+  }
+}

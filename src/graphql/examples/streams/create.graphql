@@ -1,0 +1,10 @@
+mutation{
+  createLearningStream(input:{
+    name:"A"
+    year:2019
+    years:50
+    organizationId: "3d38dae4-00ea-4ac8-90fa-4ccdba7b2d02"
+  }){
+    id
+  }
+}

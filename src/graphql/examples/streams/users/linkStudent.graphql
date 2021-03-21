@@ -1,0 +1,8 @@
+mutation{
+  linkStudentToStream(input:{
+    learningStreamId: "4fc1efa1-41cc-4406-bda2-602a6b9f9f6e"
+    userId:"7c8cfc88-5fed-4eff-a0b3-87a2b27a72fa"
+  }){
+    id
+  }
+}

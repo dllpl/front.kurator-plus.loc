@@ -1,0 +1,13 @@
+mutation(
+  $id:UUID!
+  $reason: String!
+){
+  rejectVacationPlan(
+    id:$id
+    input:{
+      reason:$reason
+    }
+  ){
+    status
+  }
+}
